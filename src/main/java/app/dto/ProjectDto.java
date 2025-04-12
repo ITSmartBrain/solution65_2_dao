@@ -1,5 +1,9 @@
 package app.dto;
 
+import app.json.LocalDateDeserializer;
+import app.json.LocalDateSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.*;
 import java.time.LocalDate;
 
@@ -30,11 +34,15 @@ public class ProjectDto {
     /**
      * Дата начала
      */
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate startDate;
 
     /**
      * Дата завершения
      */
+    @JsonSerialize(using = LocalDateSerializer.class)
+    @JsonDeserialize(using = LocalDateDeserializer.class)
     private LocalDate endDate;
 
     /**
